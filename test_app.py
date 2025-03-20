@@ -10,4 +10,9 @@ def client():
 def test_home_page(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b'Welcome to CI/CD Demo App' in response.data 
+    assert b'Welcome to CI/CD Demo App' in response.data
+
+def test_about_page(client):
+    response = client.get('/about')
+    assert response.status_code == 200
+    assert b'About CI/CD Demo App' in response.data 
